@@ -2,7 +2,7 @@ import React, {useState,useEffect } from 'react';
 import Header from "./components/Header.jsx";
 import Board from "./components/Board.jsx";
 import Result from "./components/Result.jsx";
-import Rules from "./components/Rules.jsx";
+import Button from "./components/Button.jsx";
 
 export const UserContext = React.createContext(null);
 
@@ -33,9 +33,9 @@ function App() {
                     <Result />
                 }
             </UserContext.Provider>
-            <Rules >
+            <Button >
                 RULES
-            </Rules>
+            </Button>
         </main>
     );
 }
