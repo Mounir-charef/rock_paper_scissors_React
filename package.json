@@ -9,8 +9,8 @@
     "deploy": "gh-pages -d dist",
     "build": "vite build",
     "preview": "vite preview",
-    "compile": "npx tailwindcss -i ./src/input.css -o ./dist/styles_output.css",
-    "watch": "npx tailwindcss -i ./src/input.css -o ./dist/styles_output.css --watch"
+    "compile": "npx tailwindcss -i ./src/input.css -o ./src/styles_output.css",
+    "watch": "npx tailwindcss -i ./src/input.css -o ./src/styles_output.css --watch"
   },
   "dependencies": {
     "react": "^18.2.0",
