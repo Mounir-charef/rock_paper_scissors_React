@@ -3,13 +3,16 @@ module.exports = {
   content: ['./*.html', "./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     screens : {
-      sm : '375',
-      md : '768',
+      sm : '375px',
+      md : '768px',
       lg : '976px',
       xl : '1440px'
     },
     fontFamily : {
-      'Default' : ['Barlow Semi Condensed', 'sans-serif']
+      'sans' : ['"Barlow Semi Condensed"', 'sans-serif']
+    },
+    lineHeight : {
+      'extraSmall' : '0.8'
     },
     extend: {
       colors : {
