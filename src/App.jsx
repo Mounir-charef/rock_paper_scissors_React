@@ -10,18 +10,22 @@ function App() {
     const [game, setGame] = useState(true);
     const [score, setScore] = useState(13);
     const plays = Object.freeze({
-        ROCK: 'rock',
-        PAPER: 'paper',
-        SCISSORS: 'scissors'
+        ROCK: 1,
+        PAPER: 2,
+        SCISSORS: 3
     })
 
-    const checkWinner = () => {
+    const checkWinner = move => {
         let keys = Object.keys(plays);
-         alert(plays[keys[ Math.floor(Math.random() * keys.length)]]);
+         const bot_move =plays[keys[ Math.floor(Math.random() * keys.length)]];
+         const result = (3 + plays[move] - bot_move) % 3
+        if(result === 0) return 'draw'
+        if(result === 1) return 'YOU WON!'
+        if(result === 2) return 'YOU LOST BOI!'
     }
 
     return (
-        <main className='flex flex-col items-center gap-20'>
+        <main className='flex min-h-screen flex-col items-center gap-20'>
             <Header score={score}/>
             <UserContext.Provider value={checkWinner}>
                 {game?
@@ -29,7 +33,9 @@ function App() {
                     <Result />
                 }
             </UserContext.Provider>
-            <Rules />
+            <Rules >
+                RULES
+            </Rules>
         </main>
     );
 }
