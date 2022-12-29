@@ -1,4 +1,4 @@
-import React, {useState,useEffect } from 'react';
+import React, {useState} from 'react';
 import Header from "./components/Header.jsx";
 import Board from "./components/Board.jsx";
 import Result from "./components/Result.jsx";
@@ -7,7 +7,7 @@ import Button from "./components/Button.jsx";
 export const UserContext = React.createContext(null);
 
 function App() {
-    const [game, setGame] = useState(true);
+    const [winner, setWinner] = useState({});
     const [score, setScore] = useState(13);
     const plays = Object.freeze({
         ROCK: 1,
@@ -16,23 +16,41 @@ function App() {
     })
 
     const checkWinner = move => {
-        let keys = Object.keys(plays);
-         const bot_move =plays[keys[ Math.floor(Math.random() * keys.length)]];
-         const result = (3 + plays[move] - bot_move) % 3
-        if(result === 0) return 'draw'
-        if(result === 1) return 'YOU WON!'
-        if(result === 2) return 'YOU LOST BOI!'
+         let keys = Object.keys(plays);
+         const botMove =plays[keys[ Math.floor(Math.random() * keys.length)]];
+         let result = (3 + plays[move] - botMove) % 3
+         if(result === 0) setWinner({
+                message: 'draw',
+                move: move,
+                botMove: getKeyByValue(plays, botMove)
+            })
+         if(result === 1) setWinner({
+            message: 'YOU WON!!',
+            move: move,
+            botMove: getKeyByValue(plays, botMove)
+        })
+         if(result === 2) setWinner({
+            message: 'YOU LOST BOII!',
+            move: move,
+            botMove: getKeyByValue(plays, botMove)
+        })
     }
 
+    function isObjectEmpty(obj) {
+        return Object.keys(obj).length === 0;
+    }
+    function getKeyByValue(object, value) {
+        return Object.keys(object).find(key => object[key] === value);
+    }
+
+
     return (
-        <main className='flex min-h-screen flex-col items-center gap-28 md:gap-20'>
+        <main className='flex h-full flex-col items-center gap-28 md:gap-20 overflow-hidden'>
             <Header score={score}/>
-            <UserContext.Provider value={checkWinner}>
-                {game?
-                    <Board /> :
-                    <Result />
-                }
-            </UserContext.Provider>
+            {isObjectEmpty(winner)?
+                <Board checkWinner={checkWinner}/> :
+                <Result winner={winner}/>
+            }
             <Button px='px-8' absolute={true}>
                 RULES
             </Button>

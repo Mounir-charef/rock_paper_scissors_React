@@ -2,21 +2,26 @@ import rock from "../images/icon-rock.svg"
 import paper from "../images/icon-paper.svg"
 import scissors from "../images/icon-scissors.svg"
 
-function PlayButton({play, className}) {
-    const borderColor = {
-        rock: ' border-red-500 ',
-        paper: ' border-blue-500 ',
-        scissors: ' border-yellow-500 '
+function PlayButton({play, className, onClick}) {
+    const buttons = {
+        ROCK: {
+            borderColor:' border-red-500 ',
+            image: rock
+        },
+        PAPER: {
+            borderColor:' border-blue-500 ',
+            image: paper
+        },
+        SCISSORS: {
+            borderColor:' border-yellow-500 ',
+            image: scissors
+        },
     }
-    const images = {
-        rock: rock,
-        paper: paper,
-        scissors: scissors
-    }
+    const {borderColor, image} = buttons[play];
 
     return (
-        <button className={`${className? className : ''}` + `${borderColor[play]? borderColor[play] : ''}` + ' w-24 transition md:w-32 hover:scale-110 active:scale-90 bg-white border-8 rounded-full aspect-square grid place-items-center'}>
-            <img src={images[play]} alt={play} className='select-none '/>
+        <button onClick={()=> onClick(play)} className={`${className? className : ''}` + `${borderColor? borderColor : ''} transition active:scale-90 bg-white border-8 rounded-full aspect-square grid place-items-center`}>
+            <img src={image} alt={play} className='select-none touch-none'/>
         </button>
     );
 }
