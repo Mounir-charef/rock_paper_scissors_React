@@ -25,7 +25,7 @@ function App() {
     }
 
     return (
-        <main className='flex min-h-screen flex-col items-center gap-20'>
+        <main className='flex min-h-screen flex-col items-center gap-28 md:gap-20'>
             <Header score={score}/>
             <UserContext.Provider value={checkWinner}>
                 {game?
