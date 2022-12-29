@@ -33,7 +33,7 @@ function App() {
                     <Result />
                 }
             </UserContext.Provider>
-            <Button >
+            <Button x={8} absolute={true}>
                 RULES
             </Button>
         </main>

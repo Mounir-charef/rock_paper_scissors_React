@@ -1,5 +1,3 @@
-import React from "react";
-
 function Header({score}) {
     return (
         <div id='header' aria-label='score' className='flex w-10/12 lg:w-1/2 font-bold justify-between
