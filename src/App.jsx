@@ -21,12 +21,14 @@ function App() {
          const botMove =plays[keys[ Math.floor(Math.random() * keys.length)]];
          let result = (3 + plays[move] - botMove) % 3
          if(result === 0) setWinner({
+             won: result,
              message: 'draw',
              move: move,
              botMove: getKeyByValue(plays, botMove),
          })
          if(result === 1){
              setWinner({
+                 won: result,
                  message: 'YOU WON!!',
                  move: move,
                  botMove: getKeyByValue(plays, botMove),
@@ -35,6 +37,7 @@ function App() {
          }
          if(result === 2){
              setWinner({
+                 won: result,
                  message: 'YOU LOST BOII!',
                  move: move,
                  botMove: getKeyByValue(plays, botMove),

@@ -537,21 +537,12 @@ video {
   grid-column-end: 3;
 }
 
-.my-10 {
-  margin-top: 2.5rem;
-  margin-bottom: 2.5rem;
-}
-
 .mt-5 {
   margin-top: 1.25rem;
 }
 
 .mb-0 {
   margin-bottom: 0px;
-}
-
-.mb-20 {
-  margin-bottom: 5rem;
 }
 
 .flex {
@@ -562,24 +553,16 @@ video {
   display: grid;
 }
 
-.hidden {
-  display: none;
-}
-
 .aspect-square {
   aspect-ratio: 1 / 1;
 }
 
-.h-full {
-  height: 100%;
+.h-screen {
+  height: 100vh;
 }
 
 .h-60 {
   height: 15rem;
-}
-
-.h-screen {
-  height: 100vh;
 }
 
 .w-24 {
@@ -679,10 +662,6 @@ video {
   justify-content: space-evenly;
 }
 
-.gap-28 {
-  gap: 7rem;
-}
-
 .gap-5 {
   gap: 1.25rem;
 }
@@ -741,6 +720,11 @@ video {
   border-color: rgb(255 255 255 / var(--tw-border-opacity));
 }
 
+.border-HeaderOutline {
+  --tw-border-opacity: 1;
+  border-color: hsl(217 16% 45% / var(--tw-border-opacity));
+}
+
 .border-red-500 {
   --tw-border-opacity: 1;
   border-color: rgb(239 68 68 / var(--tw-border-opacity));
@@ -754,11 +738,6 @@ video {
 .border-DarkText {
   --tw-border-opacity: 1;
   border-color: hsl(229 25% 31% / var(--tw-border-opacity));
-}
-
-.border-HeaderOutline {
-  --tw-border-opacity: 1;
-  border-color: hsl(217 16% 45% / var(--tw-border-opacity));
 }
 
 .border-opacity-40 {
@@ -881,6 +860,29 @@ body {
   background: radial-gradient(at top, hsl(214, 47%, 23%), hsl(237, 49%, 15%));
 }
 
+@keyframes getShiny {
+  0%, 100% {
+    box-shadow:
+                0 0 0 20px rgba(255, 255, 255, .2),
+                0 0 0 50px rgba(255, 255, 255, .1),
+                0 0 0 90px rgba(255, 255, 255, .05)
+    ;
+  }
+
+  50% {
+    box-shadow:
+                0 0 0 30px rgba(255, 255, 255, .2),
+                0 0 0 70px rgba(255, 255, 255, .1),
+                0 0 0 120px rgba(255, 255, 255, .05)
+    ;
+  }
+}
+
+main > div > .shiny {
+  /*background: radial-gradient(at center, hsl(214, 47%, 23%), hsl(237, 49%, 15%));*/
+  animation: getShiny 2s ease infinite ;
+}
+
 .hover\:scale-110:hover {
   --tw-scale-x: 1.1;
   --tw-scale-y: 1.1;
@@ -964,14 +966,6 @@ body {
 
   .md\:w-28 {
     width: 7rem;
-  }
-
-  .md\:justify-around {
-    justify-content: space-around;
-  }
-
-  .md\:gap-20 {
-    gap: 5rem;
   }
 
   .md\:gap-5 {
