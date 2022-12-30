@@ -1049,4 +1049,12 @@ main > div > .shiny {
   .xl\:w-36 {
     width: 9rem;
   }
+
+  .xl\:w-60 {
+    width: 15rem;
+  }
+
+  .xl\:w-48 {
+    width: 12rem;
+  }
 }
