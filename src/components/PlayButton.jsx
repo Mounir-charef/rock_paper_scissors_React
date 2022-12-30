@@ -20,7 +20,7 @@ function PlayButton({play, className, onClick}) {
     const {borderColor, image} = buttons[play];
 
     return (
-        <button onClick={()=> onClick(play)} className={`${className? className : ''}` + `${borderColor? borderColor : ''} transition active:scale-90 bg-white border-8 rounded-full aspect-square grid place-items-center`}>
+        <button onClick={()=> onClick(play)} className={`${className? className : ''}` + `${borderColor? borderColor : ''} transition hover:scale-110 active:scale-90 bg-white border-8 rounded-full aspect-square grid place-items-center`}>
             <img src={image} alt={play} className='select-none touch-none'/>
         </button>
     );
