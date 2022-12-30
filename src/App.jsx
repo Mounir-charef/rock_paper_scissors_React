@@ -54,7 +54,7 @@ function App() {
 
 
     return (
-        <main className='flex h-full flex-col items-center gap-28 md:gap-20 overflow-hidden'>
+        <main className='flex h-screen flex-col items-center justify-evenly overflow-hidden'>
             <Header score={score}/>
             {isObjectEmpty(winner)?
                 <Board checkWinner={checkWinner}/> :

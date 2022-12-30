@@ -1,7 +1,7 @@
 function Header({score}) {
     return (
         <div id='header' aria-label='score' className='flex w-10/12 lg:w-1/2 font-bold justify-between
-         items-center my-10 p-3 md:p-6 mb-0 border-4 border-white border-opacity-40 rounded-2xl text-white'>
+         items-center p-3 md:p-6 mb-0 border-4 border-HeaderOutline border-opacity-40 rounded-2xl text-white'>
             <div className='leading-extraSmall text-3xl md:text-4xl md:leading-extraSmall '>
                 <h3>ROCK</h3>
                 <h3>PAPER</h3>
