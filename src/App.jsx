@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useRef} from 'react';
 import Header from "./components/Header.jsx";
 import Board from "./components/Board.jsx";
 import Result from "./components/Result.jsx";
@@ -7,7 +7,7 @@ import Rules from "./components/Rules.jsx";
 
 function App() {
     const [winner, setWinner] = useState({}),
-        [score, setScore] = useState(0),
+        score = useRef(0),
         [opacity, setOpacity] = useState(false);
 
     const plays = Object.freeze({
@@ -33,7 +33,7 @@ function App() {
                  move: move,
                  botMove: getKeyByValue(plays, botMove),
              });
-             setScore(oldScore => oldScore+1);
+             score.current--;
          }
          if(result === 2){
              setWinner({
@@ -42,7 +42,7 @@ function App() {
                  move: move,
                  botMove: getKeyByValue(plays, botMove),
              })
-             setScore(oldScore => oldScore-1);
+             score.current++;
          }
 
     }
@@ -58,7 +58,7 @@ function App() {
 
     return (
         <main className='flex h-screen flex-col items-center justify-evenly overflow-hidden'>
-            <Header score={score}/>
+            <Header score={score.current}/>
             {isObjectEmpty(winner)?
                 <Board checkWinner={checkWinner}/> :
                 <Result winner={winner} replay={() => setWinner({})}/>
