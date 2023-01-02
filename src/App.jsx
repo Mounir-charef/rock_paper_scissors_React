@@ -33,7 +33,7 @@ function App() {
                  move: move,
                  botMove: getKeyByValue(plays, botMove),
              });
-             score.current--;
+             score.current++;
          }
          if(result === 2){
              setWinner({
@@ -42,7 +42,7 @@ function App() {
                  move: move,
                  botMove: getKeyByValue(plays, botMove),
              })
-             score.current++;
+             score.current--;
          }
 
     }

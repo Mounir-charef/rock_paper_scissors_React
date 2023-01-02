@@ -864,6 +864,7 @@ html, body {
   overflow: hidden;
   position: relative;
   background: radial-gradient(at top, hsl(214, 47%, 23%), hsl(237, 49%, 15%));
+  -webkit-tap-highlight-color: transparent
 }
 
 @keyframes getShiny {
@@ -1044,14 +1045,6 @@ main > div > .shiny {
 @media (min-width: 1440px) {
   .xl\:h-1\/2 {
     height: 50%;
-  }
-
-  .xl\:w-36 {
-    width: 9rem;
-  }
-
-  .xl\:w-60 {
-    width: 15rem;
   }
 
   .xl\:w-48 {
